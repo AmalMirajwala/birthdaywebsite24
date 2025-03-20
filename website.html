@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Clownie!</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            color: white;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            font-family: "Comic Sans MS", cursive, sans-serif;
+            font-size: 40px;
+            margin-top: 20px;
+        }
+        .background-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+        .container {
+            position: relative;
+            height: 100vh;
+        }
+        .ghost {
+            position: absolute;
+            top: 20%;
+            left: 10%;
+            animation: float 3s infinite ease-in-out;
+        }
+        .ghost img {
+            width: 250px;
+        }
+        .clown {
+            position: absolute;
+            top: 20%;
+            right: 10%;
+            animation: bounce 1.5s infinite ease-in-out;
+        }
+        .clown img {
+            width: 250px;
+        }
+        .message {
+            position: absolute;
+            top: 20%;
+            left: 40%;
+            transform: translateX(-50%);
+            background: rgba(255, 255, 255, 0.9);
+            color: black;
+            padding: 20px;
+            border-radius: 15px;
+            font-size: 18px;
+            max-width: 300px;
+            text-align: center;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+            animation: fadeInOut 3s infinite;
+        }
+        .message::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: -10px;
+            border-width: 10px;
+            border-style: solid;
+            border-color: transparent rgba(255, 255, 255, 0.9) transparent transparent;
+        }
+        .footer {
+            position: fixed;
+            bottom: 10px;
+            width: 100%;
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+            padding: 10px;
+            color: white;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-30px); }
+        }
+        @keyframes fadeInOut {
+            0% { opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <video class="background-video" autoplay loop muted>
+        <source src="background.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <h1>Happy Birthday My Clownie!</h1>
+    <div class="container">
+        <div class="ghost">
+            <img src="ghost.jpg" alt="Ghost">
+        </div>
+        <div class="message" id="message"></div>
+        <div class="clown">
+            <img src="clown.jpg" alt="Clown">
+        </div>
+    </div>
+    <div class="footer">From Your Demon ❤️</div>
+    <script>
+        const messages = [
+            "Happy Birthday my Twinnie! 🎉",
+            "You, me, loft apartment? ✨",
+            "PUBG when? 🎮",
+            "I love you to the moon and back! 🌟",
+            "One thing about me is that us being best friends for 15 years is my biggest flex 💖",
+            "You're the best clown in the whole universe! 🤡💜",
+            "Thanks for always being there for me! 💕",
+            "Have a magical birthday! Eat a lot of umm broccoli?",
+            "You're out of this world awesome! 🚀",
+            "You're absolutely gorgeous to me! 💜",
+            "You're better than the sister I prayed for! 💫",
+            "You make my life so much better simply by existing! 💝",
+            "BELLLARKE FOREVER!",
+            "You deserve all the happiness in the universe! 🌌✨"
+        ];
+        
+        function changeMessage() {
+            const messageBox = document.getElementById("message");
+            messageBox.textContent = messages[Math.floor(Math.random() * messages.length)];
+        }
+        
+        changeMessage();
+        setInterval(changeMessage, 3000);
+    </script>
+</body>
+</html>
